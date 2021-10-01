@@ -1,5 +1,8 @@
 package parcial;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 
@@ -143,7 +146,11 @@ public class Login extends javax.swing.JFrame {
         System.out.println(contra);
         if(usuario.equals("admin") && contra.equals("admin")){
             this.setVisible(false);
-            new Dashboard().setVisible(true);
+            try {
+                new Dashboard().setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
         }else{
             showMessageDialog(null, "Usuario o Contraseña Incorrecta!");
