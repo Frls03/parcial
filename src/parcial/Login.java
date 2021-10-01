@@ -3,16 +3,7 @@ package parcial;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author olste
- */
 public class Login extends javax.swing.JFrame {
 
     /**
@@ -39,7 +30,7 @@ public class Login extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocation(new java.awt.Point(300, 200));
 
         jPanel3.setBackground(new java.awt.Color(0, 100, 182));
@@ -151,7 +142,9 @@ public class Login extends javax.swing.JFrame {
         String contra = String.valueOf(jPasswordField1.getPassword());
         System.out.println(contra);
         if(usuario.equals("admin") && contra.equals("admin")){
-            showMessageDialog(null, "Bienvenido!");
+            this.setVisible(false);
+            new Dashboard().setVisible(true);
+            
         }else{
             showMessageDialog(null, "Usuario o Contraseña Incorrecta!");
             jTextField2.setText("");
